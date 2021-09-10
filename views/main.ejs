@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<% var message%>
+<% var type%>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script> -->
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/js/bootstrap.js">
+	<title>Login Page</title>
+</head>
+
+<body class="main">
+	<% if(message){ %>
+		<div class="alert alert-<%=type%> alert-dismissible fade show" role="alert" style="text-align: center;">
+			<strong><%= message%></strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		  </div>
+	<%}%>
+	
+	<header style="padding-bottom: 50px">
+		<div class="title_taskbar"
+			style="width: 100%; height: 80px;color: black;position: center;margin: auto; font-size: 33px">
+			<a href="/">
+				<div class="text-center">
+					<img src="img/JOEY2.png" class="rounded" alt="JR">
+				</div>
+			</a>
+		</div>
+	</header>
+	<div class="title">
+		<p>Welcome to Joey's Restaunrant</p>
+	</div>
+	<div class="form">
+		<form method="POST" action="/home" id="father">
+			<div class="form-group">
+				<label for="InputEmail1">Username or Email adress:</label>
+				<input type="text" name="txtemail" class="form-control" id="InputEmail1" placeholder="Enter email"
+					required autofocus>
+			</div>
+			<div class="form-group">
+				<label for="InputPassword1">Password:</label>
+				<input type="password" name="pass" class="form-control" id="InputPassword1" placeholder="Password"
+					required>
+			</div>
+			<div class="interact">
+				<button type="submit" class="btn btn-primary">Login</button>
+				<button type="button" class="btn btn-secondary"
+					onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
+			</div>
+		</form>
+		<div id="id01" class="modal">
+			<span onclick="document.getElementById('id01').style.display='none'" class="close"
+				title="Close Modal">&times;</span>
+			<form class="signform" method="POST" action="/">
+				<div class="form-inside">
+					<h1 style="text-align: center">Create Your Account</h1>
+					<label for="fname">Fisrt Name:</label>
+					<input type="text" name="signfname" class="form-control" id="fname" placeholder="Fisrt Name"
+						required autofocus>
+					<label for="lname">Last Name</label>
+					<input type="text" name="signlname" class="form-control" id="lname" placeholder="Last Name"
+						required>
+					<label for="signemail">Email adress:</label>
+					<input type="email" name="signemail" class="form-control" id="signemail" placeholder="Enter Email"
+						required>
+					<label for="email">Password:</label>
+					<input type="password" name="signpass" class="form-control" id="email" required>
+					<label for="pnumber">Phone Number:</label>
+					<input type="number" name="signpnumber" class="form-control" id="pnumber"
+						placeholder="Enter Phone Number" required>
+					<label for="area">Area:</label>
+					<input type="text" name="signarea" class="form-control" id="area" placeholder="Enter Area" required>
+					<label for="town">Town:</label>
+					<input type="text" name="signtown" class="form-control" id="town" placeholder="Enter Town" required>
+					<div class="clearfix">
+						<button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Sign Up</button>
+						<button type="button" onclick="document.getElementById('id01').style.display='none'"
+							class="btn btn-danger" style="width: 100%;">Cancel</button>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script>
+		// Get the modal
+		var modal = document.getElementById('id01');
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+
+
+</body>
+
+</html>
